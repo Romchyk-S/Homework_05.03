@@ -11,7 +11,7 @@ def func_0():
     
     x = np.arange(-10, 10, 0.1)
     
-    label = "periodic or not, period"
+    label = "$periodic, \ 2\pi_k$"
     
     title = "$2*sinx$"
     
@@ -21,9 +21,9 @@ def func_1():
     
     x = np.arange(-10, 10, 0.1)
     
-    label = "periodic or not, period"
+    label = "$periodic, \ \pi_k$"
     
-    title = "sin(2x)$"
+    title = "$sin(2x)$"
     
     return x, np.sin(2*x), label, title
 
@@ -31,12 +31,7 @@ def func_2():
     
     x = np.arange(-10, 10, 0.1)
     
-    # x = np.setdiff1d(x, [0])
-    
-    # y = np.piecewise(x, [(x < -0.01), ((x >= -0.01) & (x <= 0.01)), (x > 0.01)],
-    #                 [lambda x: np.abs(x)/x, np.nan, lambda x: np.abs(x)/x])
-    
-    label = "periodic or not, period"
+    label = "$periodic, \ 2\pi_k$"
     
     title = "$sin(2x+\pi/4)$"
     
@@ -46,10 +41,7 @@ def func_3():
     
     x = np.arange(-10, 10, 0.1)
     
-    label = "periodic or not, period"
-    
-    # y = np.piecewise(x, [(x < -1.01), (x >= -1.01) & (x <= 1.01), (x > 1.01)],
-    #                 [lambda x: np.log2(x**2-1), np.nan, lambda x: np.log2(x**2-1)])
+    label = "$periodic, \ 2\pi_k$"
     
     title = "$3*sinx+4*cosx$"
     
@@ -59,7 +51,7 @@ def func_4():
     
     x = np.arange(-10, 10, 0.1)
     
-    label = "periodic or not, period"
+    label = "$periodic, \ \pi_k$"
     
     title = "$sin^2(x)$"
     
@@ -67,7 +59,7 @@ def func_4():
 
 def func_5():
     
-    label = "periodic or not, period"
+    label = "non-periodic"
     
     title = "$sin(x^2)$"
     
@@ -77,19 +69,16 @@ def func_5():
 
 def func_6():
     
-    x = np.arange(-10, 10, 0.1)
+    x = np.arange(0, 10, 0.1)
     
-    # x = np.setdiff1d(x, [-2, 2])
+    y = np.piecewise(x, [(x < np.pi-0.1), (x >= np.pi)],
+                     [lambda x: np.tan(np.sqrt(x)), lambda x: np.tan(np.sqrt(x))])
     
     label = "periodic or not, period"
     
     title = "$tan\sqrt{x}$"
     
-    # y = np.piecewise(x, [(x < -2.01), (x >= -2.01) & (x <= -1.99), (x>-1.99) & (x < 1.99), (x>=1.99) & (x<=2.01), (x > 2.01)],
-    #                 [lambda x: x**3/(x**2-4), np.nan, lambda x: x**3/(x**2-4),np.nan,  lambda x: x**3/(x**2-4)])
-    
-    
-    return x, np.tan(np.sqrt(x)), label, title
+    return x, y, label, title
 
 def func_7():
     
@@ -97,16 +86,6 @@ def func_7():
     
     title = "$\sqrt{tan x}$"
     
-    x = np.arange(-10, 10, 0.1)
+    x = np.arange(0, 10, 0.1)
     
     return x, np.sqrt(np.tan(x)), label, title
-
-# def func_8():
-    
-#     x = np.arange(-10, 10, 0.1)
-    
-#     label = "$x \in \Re$"
-    
-#     title = "$2^x-2^{-x}$"
-    
-#     return x, 2**x-2**(-x), label, title

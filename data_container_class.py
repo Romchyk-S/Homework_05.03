@@ -38,7 +38,7 @@ class DataContainer:
         
         ax.set_title(title)
         
-        ax.text(self.x[-1]/2, self.y[1], text)
+        ax.text(self.x[-1]/2, self.y[1], text, fontsize = 14)
         
         ax.legend()
         
