@@ -69,12 +69,14 @@ def func_5():
 
 def func_6():
     
-    x = np.arange(0, 10, 0.1)
+    x = np.arange(0, 8*np.pi, 0.1)
+
+    y = (np.piecewise(x, [(x < 2.49), ((x >= 2.49) & (x <= 2.51)), (x>2.51)],
+                      [lambda x: np.tan(np.sqrt(x)), np.nan, lambda x: np.tan(np.sqrt(x))]))
     
-    y = np.piecewise(x, [(x < np.pi-0.1), (x >= np.pi)],
-                     [lambda x: np.tan(np.sqrt(x)), lambda x: np.tan(np.sqrt(x))])
+    # не зміг зробити piecewise.
     
-    label = "periodic or not, period"
+    label = "$non-periodic$"
     
     title = "$tan\sqrt{x}$"
     
@@ -82,10 +84,10 @@ def func_6():
 
 def func_7():
     
-    label = "periodic or not, period"
+    label = "$non-periodic$"
     
     title = "$\sqrt{tan x}$"
     
-    x = np.arange(0, 10, 0.1)
+    x = np.arange(0, 8*np.pi, 0.1)
     
     return x, np.sqrt(np.tan(x)), label, title
